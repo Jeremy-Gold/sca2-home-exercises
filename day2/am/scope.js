@@ -23,7 +23,7 @@ const a = 1;
 console.log(a);
 y();
 
-console.log("TEST")
+
 /*
 first: print 1
 then: print 2
