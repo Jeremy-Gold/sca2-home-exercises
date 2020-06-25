@@ -12,6 +12,7 @@ class App extends Component {
       guess: -1,
       win: false,
       winStreak: 0,
+      highScore: 0,
     }
   }
 
@@ -29,17 +30,17 @@ class App extends Component {
     if(this.state.randomValue === this.state.guess){
       this.setState({win: true, winStreak: this.state.winStreak + 1});
       this.newRandomValue();
+      if(this.state.highScore <= this.state.winStreak) this.setState({highScore: this.state.winStreak + 1});
     } else {
       this.setState({win: false, winStreak: 0});
     }
-    console.log(this.state.win)
   }
 
   render() {
     return (
       <div className="App">
         <h1>A Super Fun Guessing Game</h1>
-        <div id="currentValue">Current value: {this.state.randomValue}</div>
+        {/* <div id="currentValue">Current value: {this.state.randomValue}</div> */}
         <form>
           <label>
             Enter a guess:
@@ -51,10 +52,11 @@ class App extends Component {
           </label>
           <input type="submit" value="Submit" onClick={this.checkWin} />
         </form>
-        <button onClick={this.newRandomValue}>Change the value </button>
+        <button onClick={this.newRandomValue}>Change the target value </button>
         <div id = "userInfo">
             <h2>Winstreak: {this.state.winStreak}</h2>
-            <h2>Maximum value: {MAX_VALUE - 1}</h2>
+            <h2>Maximum Value: {MAX_VALUE - 1}</h2>
+            <h2>High Score: {this.state.highScore}</h2>
         </div>
         {this.state.win ? <WinMessage /> : <LoseMessage />}
       </div>
