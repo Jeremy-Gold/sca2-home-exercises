@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: 100vw;
+  background-color: darkgray;
 }
 
 div {
@@ -12,4 +13,24 @@ div {
 form {
   display: flex;
   flex-direction: column;
+}
+
+h1{
+  font-size: 300%;
+  color: blue;
+}
+
+#currentValue{
+  color: white;
+  font-size: 150%;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: rgb(0, 0, 0);
+}
+
+#userInfo{
+  background-color: cornflowerblue;
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
