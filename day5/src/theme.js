@@ -9,7 +9,10 @@ WebFont.load({
 const theme = {
   colors: {
     devLogo: "#FC6264",
-    mainBackground: "#FFF"
+    mainBackground: "#FFF",
+    subBackground: "#A3A3A3",
+    primaryText: "#0313FC",
+    inputText: "ad0099"
   },
   fonts: {
     primary: {
