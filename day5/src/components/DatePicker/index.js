@@ -8,7 +8,7 @@ const DatePicker = ({date, title, update}) => {
         <React.Fragment>
             <Title>{title}</Title>
             <Calendar
-                onChange={update}
+                onChange={value => update(value)}
                 value={date}
             />
         </React.Fragment>

@@ -3,6 +3,7 @@ import Welcome from "../../components/Welcome"
 import FormInput from "../../components/FormInput"
 import DatePicker from "../../components/DatePicker"
 import {Container, FormContainer, Button} from "./styles"
+import SubmitMessage from "./components/SubmitMessage"
 
 
 class Form extends Component {
@@ -16,6 +17,7 @@ class Form extends Component {
       hometown: "",
       threeFavFoods: ["", "", ""],
       birthday: new Date(),
+      submitted: false,
     }
   }
 
@@ -56,8 +58,8 @@ class Form extends Component {
     })
   }
 
-  showResult = () => {
-    return `User's name is ${this.state.name}, and they are from ${this.state.hometown}. ${this.state.pronoun} was born on ${this.state.birthday.getMonth}/${this.state.birthday.getDay}/${this.state.birthday.getFullYear}, and their favorite foods are ${this.state.threeFavFoods[0]}, ${this.state.threeFavFoods[1]}, and ${this.state.threeFavFoods[2]}.`
+  showResult = async () => {
+    await this.setState({submitted : true})
   }
 
   render() {
@@ -98,6 +100,13 @@ class Form extends Component {
           />
         </FormContainer>
         <Button onClick={this.showResult}>Submit!</Button>
+        {this.state.submitted && <SubmitMessage
+          name={this.state.name}
+          pronoun={this.state.pronoun}
+          hometown={this.state.hometown}
+          birthday={this.state.birthday}
+          threeFavFoods={this.state.threeFavFoods}
+        />}
       </Container>
       
     )
